@@ -18,28 +18,28 @@
 
     .wrap {
       text-align: center;
-      padding: 40px 15px 50px;
+      padding: 35px 15px 45px;
     }
 
     h1 {
-      font-size: 30px;
+      font-size: 26px;   /* slightly smaller */
       font-weight: 400;
-      margin-bottom: 30px;
-      letter-spacing: 1.5px;
+      margin-bottom: 22px;
+      letter-spacing: 1.3px;
     }
 
-    /* Sharper, Smaller Arrow */
+    /* Arrow positioned slightly further away */
     .arrow {
       width: 0;
       height: 0;
       border-left: 12px solid transparent;
       border-right: 12px solid transparent;
       border-top: 20px solid #111;
-      margin: 0 auto -10px;
+      margin: 0 auto 6px;  /* positive margin instead of negative */
     }
 
     img#wheel {
-      width: 640px;
+      width: 680px;       /* adjust if needed */
       max-width: 95vw;
       height: auto;
       display: block;
@@ -49,7 +49,7 @@
     }
 
     .spacer {
-      height: 10px;
+      height: 12px;
     }
 
     button {
@@ -108,7 +108,6 @@
         spinning = true;
         btn.disabled = true;
 
-        // Random rotation between 2400–4200 degrees
         const randomSpin = Math.floor(Math.random() * 1800) + 2400;
         currentRotation += randomSpin;
 
