@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nomad's Table — Spin the Wheel</title>
+  <style>
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    .wrap { text-align:center; padding: 18px 12px 24px; }
+    .arrow { font-size: 52px; line-height: 0.7; margin-bottom: -12px; }
+    img#wheel {
+      width: 560px;
+      max-width: 92vw;
+      height: auto;
+      display:block;
+      margin: 0 auto;
+      transition: transform 6.5s cubic-bezier(.12,.65,.2,1);
+      will-change: transform;
+    }
+    .spacer { height: 8px; } /* brings button closer */
+    button {
+      padding: 10px 18px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 10px;
+      border: 1px solid #222;
+      background: #fff;
+    }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="arrow">▼</div>
+
+    <img id="wheel"
+         src="https://roseberryrambles.com/wp-content/uploads/2026/02/spinning-wheel.png"
+         alt="Nomad's Table spinning wheel" />
+
+    <div class="spacer"></div>
+
+    <button id="spinBtn" type="button">Spin the Wheel</button>
+  </div>
+
+  <script>
+    (function () {
+      let currentRotation = 0;
+      let spinning = false;
+
+      const wheel = document.getElementById("wheel");
+      const btn = document.getElementById("spinBtn");
+
+      btn.addEventListener("click", function () {
+        if (spinning) return;
+        spinning = true;
+        btn.disabled = true;
+
+        // Rotate between 2400 and 4200 degrees
+        const randomSpin = Math.floor(Math.random() * 1800) + 2400;
+        currentRotation += randomSpin;
+
+        wheel.style.transform = "rotate(" + currentRotation + "deg)";
+
+        setTimeout(function () {
+          spinning = false;
+          btn.disabled = false;
+        }, 6700); // matches 6.5s transition
+      });
+    })();
+  </script>
+</body>
+</html>
