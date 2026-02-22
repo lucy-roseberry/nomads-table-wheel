@@ -5,39 +5,42 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nomad's Table — Spin the Wheel</title>
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: Georgia, serif;
+      font-family: 'Glacial Indifference', sans-serif;
       background: #faf9f6;
       color: #222;
     }
 
     .wrap {
       text-align: center;
-      padding: 30px 15px 40px;
+      padding: 40px 15px 50px;
     }
 
     h1 {
-      font-size: 26px;
-      font-weight: normal;
-      margin-bottom: 25px;
-      letter-spacing: 0.5px;
+      font-size: 30px;
+      font-weight: 400;
+      margin-bottom: 30px;
+      letter-spacing: 1.5px;
     }
 
-    /* Pointier Arrow */
+    /* Sharper, Smaller Arrow */
     .arrow {
       width: 0;
       height: 0;
-      border-left: 14px solid transparent;
-      border-right: 14px solid transparent;
-      border-top: 22px solid #111;
-      margin: 0 auto -8px;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 20px solid #111;
+      margin: 0 auto -10px;
     }
 
     img#wheel {
-      width: 620px;
-      max-width: 94vw;
+      width: 640px;
+      max-width: 95vw;
       height: auto;
       display: block;
       margin: 0 auto;
@@ -46,17 +49,23 @@
     }
 
     .spacer {
-      height: 12px;
+      height: 10px;
     }
 
     button {
-      padding: 10px 20px;
+      padding: 10px 24px;
       font-size: 16px;
       cursor: pointer;
       border-radius: 8px;
       border: 1px solid #333;
-      background: #fff;
-      font-family: Georgia, serif;
+      background: #ffffff;
+      font-family: 'Glacial Indifference', sans-serif;
+      letter-spacing: 1.5px;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background: #f1f1f1;
     }
 
     button:disabled {
@@ -81,7 +90,7 @@
     <div class="spacer"></div>
 
     <button id="spinBtn" type="button">
-      Spin the Wheel
+      SPIN THE WHEEL
     </button>
 
   </div>
@@ -99,6 +108,7 @@
         spinning = true;
         btn.disabled = true;
 
+        // Random rotation between 2400–4200 degrees
         const randomSpin = Math.floor(Math.random() * 1800) + 2400;
         currentRotation += randomSpin;
 
